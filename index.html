@@ -60,7 +60,9 @@
                    </div>
                    <div class="actions">
                         <!--Insertar aquí botones de "Show" y "Delete"-->
-                       <button class="edit" data-my-id="${i}">editar</button>
+                        <button class="show" data-my-id="${i}">Ver</button>
+                       <button class="edit" data-my-id="${i}">Editar</button>
+                       <button class="delete" data-my-id="${i}">Eliminar</button>
                     </div>
                 </div>\n`;
               i = i + 1;
@@ -68,6 +70,8 @@
 
             view += `<div class="actions">
                         <!--Insertar aquí botones de "Añadir" y "Reset"-->
+                        <button class="new" data-my-id="${i}">Añadir</button>
+                        <button class="resert" data-my-id="${i}">Reset</button>
                     </div>`;
 
             return view;
@@ -208,25 +212,13 @@
 
         const resetContr = () => {
             // Completar:  controlador que reinicia el modelo guardado en localStorage con las películas originales
-            const peliculasOriginales = [
-                {
-                titulo: 'Pelicula 1',
-                director: 'Director 1',
-                miniatura: 'https://example.com/miniatura1.jpg',
-                },
-                {
-                titulo: 'Pelicula 2',
-                director: 'Director 2',
-                miniatura: 'https://example.com/miniatura2.jpg',
-                },
-                {
-                titulo: 'Pelicula 3',
-                director: 'Director 3',
-                miniatura: 'https://example.com/miniatura3.jpg',
-                },
+            let mis_peliculas_iniciales = [
+            {titulo: "Superlópez",   director: "Javier Ruiz Caldera", "miniatura": "files/superlopez.png"},
+            {titulo: "Jurassic Park", director: "Steven Spielberg", "miniatura": "files/jurassicpark.png"},
+            {titulo: "Interstellar",  director: "Christopher Nolan", "miniatura": "files/interstellar.png"}
             ];
 
-            localStorage.mis_peliculas = JSON.stringify(peliculasOriginales);
+            localStorage.mis_peliculas = localStorage.mis_peliculas || JSON.stringify(mis_peliculas_iniciales);
 
             indexContr();
         };
