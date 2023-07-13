@@ -100,14 +100,11 @@
         const showView = (pelicula) => {
             // Completar: genera HTML con información de la película
             // ...
-            const html = `
-                <h2>${pelicula.titulo}</h2>
-                <p>Director: ${pelicula.director}</p>
-                <img src="${pelicula.miniatura}" alt="Miniatura de la película">
-            `;
-
+            
             return `
-             ${html}
+            <h2>${pelicula.titulo}</h2>
+            <p>Director: ${pelicula.director}</p>
+            <img src="${pelicula.miniatura}" alt="Miniatura de la película">
              <div class="actions">
                 <button class="index">Volver</button>
              </div>`;
@@ -215,6 +212,7 @@
         document.addEventListener('click', ev => {
             if (matchEvent(ev, '.index')) indexContr();
             else if (matchEvent(ev, '.edit')) editContr(myId(ev));
+            else if (matchEvent(ev, '.show')) editContr(myId(ev));
             else if (matchEvent(ev, '.update')) updateContr(myId(ev));
             else if (matchEvent(ev, '.delete')) deleteContr(myId(ev));
             else if (matchEvent(ev, '.new')) newContr();
